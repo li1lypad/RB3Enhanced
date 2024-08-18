@@ -360,6 +360,24 @@ void InitialiseFunctions()
     RB3E_MSG("Functions initialized!", NULL);
 }
 
+void ApplyCrossplayHooks()
+{
+    HookFunction(PORT_MESSAGEBROKERDDL, &MessageBrokerDDL, &MessageBrokerDDLHook)
+
+#ifndef RB3E_PS3
+    POKE_32(0x00e4cfec, NOP);
+    POKE_32(0x00e4cff0, NOP);
+    POKE_32(0x00e4cffc, NOP);
+    POKE_32(0x00e4d000, NOP);
+    POKE_32(0x00e4d008, NOP);
+    POKE_32(0x00e4d00c, NOP);
+    POKE_32(0x00e4d034, NOP);
+    POKE_32(0x00e4d03c, NOP);
+#endif
+
+    RB3E_MSG("Crossplay patches applied!", NULL);
+}
+
 void ApplyHooks()
 {
     POKE_PLUGIN_B(PORT_DATAINITFUNCS_TAIL, PLUGIN_PTR(AddDTAFunctions));

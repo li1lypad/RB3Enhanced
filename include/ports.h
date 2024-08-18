@@ -394,6 +394,7 @@ void DbgPrint(const char *s, ...);
 #define PORT_LDDREGISTERTAIL 0x008e4240  // the "ld r2" instruction after the final call to cellUsbdRegisterExtraLdd2
 #define PORT_LDDADDRESS 0x00f1bf1c       // just one of the LDDs. doesn't matter which. this one is RockBandKeyboard
 #define PORT_ISUSBDEVICEVALID 0x008e1074 // function called by the Probe LDD function that checks if a device is valid
+#define PORT_MESSAGEBROKERDDL 0x00e4d7e8 // MessageBrokerDDL
 
 // define logging functions
 extern int _sys_printf(char *fmt, ...);
