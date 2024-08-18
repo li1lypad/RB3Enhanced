@@ -362,7 +362,7 @@ void InitialiseFunctions()
 
 void ApplyCrossplayHooks()
 {
-    HookFunction(PORT_MESSAGEBROKERDDL, &MessageBrokerDDL, &MessageBrokerDDLHook)
+    HookFunction(PORT_MESSAGEBROKERDDL, &MessageBrokerDDL, &MessageBrokerDDLHook);
 
 #ifndef RB3E_PS3
     POKE_32(0x00e4cfec, NOP);
@@ -434,6 +434,7 @@ void StartupHook(void *ThisApp, int argc, char **argv)
     // apply code patches and hooks
     InitialiseFunctions();
     ApplyPatches();
+    ApplyCrossplayHooks();
     ApplyHooks();
     // initialise the default config state
     InitDefaultConfig();
